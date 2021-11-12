@@ -35,10 +35,17 @@
 
     + Run image at local `docker run -d -p 1337:1337 asia.gcr.io/int-ml-ai/my-project-dev:0.1.0-strapi-3.6.8`
 
+    + Push an image to Container Regoistry `docker push asia.gcr.io/int-ml-ai/base/my-project:0.1.0-strapi-3.6.8`
+
+> Container Registry documentation: `https://cloud.google.com/container-registry/docs/pushing-and-pulling`
+
 ## 3. Deploy by SDK
 > Create `cloudbuild.yaml` to specific Dockerfile and build image then push to Container Registry. Cloud Run will pull built image to run.
 
 - At folder contains `cloudbuild.yaml`, run command `gcloud builds submit`
+
+> Cloud Run Deployment docs: `https://cloud.google.com/run/docs/deploying`
+> Cloud SDK installing docs: `https://cloud.google.com/sdk/docs/install`
 
 # License information
 
