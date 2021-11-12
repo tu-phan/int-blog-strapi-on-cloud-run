@@ -1,0 +1,12 @@
+FROM asia.gcr.io/int-ml-ai/base/my-project:0.1.0-strapi-3.6.8
+
+# Copy project sources
+COPY ./my-project /srv/app
+
+# Set NODE_ENV to run app mode in production
+ENV NODE_ENV production
+
+# expose app port
+EXPOSE 1337
+
+CMD  [ "node", "server.js" ]

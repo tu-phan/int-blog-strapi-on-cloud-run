@@ -1,0 +1,20 @@
+FROM strapi/base:14-alpine
+
+# Create project folder
+RUN mkdir /srv/app
+
+# Add required dependencies
+COPY ./my-project/package-lock.json /srv/app/package-lock.json 
+COPY ./my-project/package.json /srv/app/package.json
+
+# Change ơwner
+RUN chown 1000:1000 -R /srv/app
+
+# Set work directory
+WORKDIR /srv/app
+
+# Set NODE_ENV to install packages
+ENV NODE_ENV production
+
+# Install dependencies
+RUN npm install --no-optional && npm cache clean --force
