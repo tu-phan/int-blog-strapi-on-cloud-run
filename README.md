@@ -26,22 +26,19 @@
 
 ## 2. Set up hcms back end
 
-Base Image: `compose/production/my-project/Dockerfile.cloudrun.base`
-Image for production: `compose/production/my-project/Dockerfile.cloudrun`
+- Base Image: `compose/production/my-project/Dockerfile.cloudrun.base`
+- Image for production: `compose/production/my-project/Dockerfile.cloudrun`
 
-Example running at local:
-- Build base image
-`docker build -f compose/production/my-project/Dockerfile.cloudrun.base . -t asia.gcr.io/int-ml-ai/base/my-project:0.1.0-strapi-3.6.8`
-- Build app image
-`docker build -f compose/production/my-project/Dockerfile.cloudrun . -t asia.gcr.io/int-ml-ai/my-project-dev:0.1.0-strapi-3.6.8`
+- Example running at local:
+    + Build base image `docker build -f compose/production/my-project/Dockerfile.cloudrun.base . -t asia.gcr.io/int-ml-ai/base/my-project:0.1.0-strapi-3.6.8`
+    + Build app image `docker build -f compose/production/my-project/Dockerfile.cloudrun . -t asia.gcr.io/int-ml-ai/my-project-dev:0.1.0-strapi-3.6.8`
 
-- Run image at local
-`docker run -d -p 1337:1337 asia.gcr.io/int-ml-ai/my-project-dev:0.1.0-strapi-3.6.8`
+    + Run image at local `docker run -d -p 1337:1337 asia.gcr.io/int-ml-ai/my-project-dev:0.1.0-strapi-3.6.8`
 
 ## 3. Deploy by SDK
-Create `cloudbuild.yaml` to specific Dockerfile and build image then push to Container Registry. Cloud Run will pull built image to run.
+> Create `cloudbuild.yaml` to specific Dockerfile and build image then push to Container Registry. Cloud Run will pull built image to run.
 
-At folder contains `cloudbuild.yaml`, run `gcloud builds submit`
+- At folder contains `cloudbuild.yaml`, run command `gcloud builds submit`
 
 # License information
 
